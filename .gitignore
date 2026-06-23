@@ -34,3 +34,5 @@ dist-ssr
 # Lovable internal workspace
 .workspace/
 node_modules
+.vercel
+.env*
