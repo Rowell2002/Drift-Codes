@@ -5,8 +5,6 @@ import {
   Lock,
   Cpu,
   FileCode2,
-  Globe2,
-  Eye,
   CheckCircle2,
   ArrowRight,
   Mail,
@@ -17,6 +15,9 @@ import {
   UserCheck,
   HelpCircle,
   Clock,
+  ExternalLink,
+  Layers,
+  Building2,
 } from "lucide-react";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 
@@ -27,13 +28,13 @@ export const Route = createFileRoute("/privacy")({
       {
         name: "description",
         content:
-          "Privacy Policy for Drift Codes. Learn how we collect, protect, and handle data across our engineering services, client products, and applications like Pulse.",
+          "Privacy Policy for Drift Codes (Private) Limited. Learn how we collect, protect, and handle data across our engineering services, client products, and applications like Pulse.",
       },
       { property: "og:title", content: "Privacy Policy — Drift Codes" },
       {
         property: "og:description",
         content:
-          "Learn about Drift Codes' data protection standards, strict client code confidentiality, and privacy practices.",
+          "Learn about Drift Codes (Private) Limited data protection standards, strict client code confidentiality, and privacy practices.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -49,21 +50,22 @@ interface SectionItem {
 }
 
 const SECTIONS: SectionItem[] = [
-  { id: "overview", title: "1. Overview & Scope" },
+  { id: "overview", title: "1. Overview & Legal Entity" },
   { id: "principles", title: "2. Core Principles" },
   { id: "data-collected", title: "3. Information We Collect" },
   { id: "use-of-data", title: "4. How We Use Information" },
-  { id: "client-confidentiality", title: "5. Client Code & IP Protection" },
+  { id: "client-confidentiality", title: "5. Client Code, IP & Open Source" },
   { id: "ai-governance", title: "6. AI & Machine Learning Ethics" },
   { id: "sharing-subprocessors", title: "7. Third Parties & Subprocessors" },
-  { id: "international-transfers", title: "8. International Transfers" },
-  { id: "security", title: "9. Security Safeguards" },
-  { id: "retention", title: "10. Retention & Deletion" },
-  { id: "your-rights", title: "11. Your Privacy Rights" },
-  { id: "cookies", title: "12. Cookies & Analytics" },
-  { id: "children", title: "13. Children's Privacy" },
-  { id: "updates", title: "14. Policy Updates" },
-  { id: "contact", title: "15. Contact & Privacy Office" },
+  { id: "external-links", title: "8. Third-Party Links" },
+  { id: "international-transfers", title: "9. International Transfers" },
+  { id: "security", title: "10. Security Safeguards" },
+  { id: "retention", title: "11. Retention & Deletion" },
+  { id: "your-rights", title: "12. Your Privacy Rights" },
+  { id: "cookies", title: "13. Cookies & Analytics" },
+  { id: "children", title: "14. Children's Privacy" },
+  { id: "updates", title: "15. Policy Updates" },
+  { id: "contact", title: "16. Contact & Legal Entity" },
 ];
 
 const FAQS = [
@@ -73,11 +75,11 @@ const FAQS = [
   },
   {
     q: "Do you train public AI models on client code or proprietary data?",
-    a: "No. When engineering AI applications, RAG pipelines, or bespoke machine learning integrations, client proprietary code and private databases are never submitted to train public foundation models without explicit contractual consent.",
+    a: "No. When engineering AI applications, RAG pipelines, or bespoke machine learning integrations, client proprietary code and private databases are never submitted to train public foundation models without explicit contractual consent. Where supported by third-party AI providers, training exclusions and data retention controls are enabled.",
   },
   {
     q: "How does Drift Codes protect client source code and credentials?",
-    a: "We implement defense-in-depth security: strict mutual NDAs, role-based least-privilege access controls, hardware MFA on all code repositories, encrypted storage (AES-256), and secure secret managers.",
+    a: "We implement defense-in-depth security: strict mutual NDAs, role-based least-privilege access controls, hardware MFA on all code repositories, industry-standard encryption in transit and at rest where supported by our infrastructure providers, and secure secret managers.",
   },
   {
     q: "What privacy standards does Drift Codes adhere to?",
@@ -85,7 +87,7 @@ const FAQS = [
   },
   {
     q: "How can I request access to or deletion of my data?",
-    a: "Send a written request to driftcodeslabs@gmail.com. We acknowledge data subject requests promptly and fulfill them within 30 days free of charge.",
+    a: "Subject to applicable laws and contractual obligations, individuals may request access, correction, export, or deletion of their personal information by contacting driftcodeslabs@gmail.com.",
   },
 ];
 
@@ -155,7 +157,7 @@ function PrivacyPage() {
             className="mt-4 max-w-3xl text-base sm:text-lg text-muted-foreground animate-fade-up"
             style={{ animationDelay: "0.2s" }}
           >
-            At Drift Codes, we believe transparency and engineering integrity go hand in hand. This
+            At Drift Codes, transparency, security, and engineering integrity go hand in hand. This
             policy outlines how we handle personal data, maintain strict confidentiality over client
             proprietary code, and protect the privacy of users interacting with our studio and
             digital products.
@@ -166,6 +168,12 @@ function PrivacyPage() {
             style={{ animationDelay: "0.3s" }}
           >
             <div className="flex items-center gap-2">
+              <Building2 className="h-3.5 w-3.5 text-[var(--brand)]" />
+              <span>
+                <strong>Operated By:</strong> Drift Codes (Private) Limited
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
               <Clock className="h-3.5 w-3.5 text-[var(--brand)]" />
               <span>
                 <strong>Last Updated:</strong> October 12, 2026
@@ -174,13 +182,13 @@ function PrivacyPage() {
             <div className="flex items-center gap-2">
               <MapPin className="h-3.5 w-3.5 text-[var(--brand)]" />
               <span>
-                <strong>Jurisdiction:</strong> Colombo, Sri Lanka (Global Reach)
+                <strong>Registered In:</strong> Sri Lanka (Global Operations)
               </span>
             </div>
             <div className="flex items-center gap-2">
               <Lock className="h-3.5 w-3.5 text-[var(--brand)]" />
               <span>
-                <strong>Version:</strong> 2.0 (Full Compliance Revision)
+                <strong>Version:</strong> 2.1
               </span>
             </div>
           </div>
@@ -202,18 +210,18 @@ function PrivacyPage() {
               },
               {
                 icon: FileCode2,
-                title: "Confidential Client IP",
-                desc: "Client source code, system architectures, and business logic are guarded under strict mutual NDAs.",
+                title: "Client IP Governance",
+                desc: "Ownership of deliverables is governed by the applicable client agreement, statement of work, or software development contract.",
               },
               {
                 icon: Cpu,
                 title: "Ethical AI Handling",
-                desc: "We never feed your private datasets or codebases into public AI foundation model training sets.",
+                desc: "Where supported by third-party AI providers, training exclusions and data retention controls are enabled to reduce exposure of customer information.",
               },
               {
                 icon: UserCheck,
                 title: "Full Rights Control",
-                desc: "Access, export, correct, or permanently purge your personal data with a single written request.",
+                desc: "Subject to applicable laws and contractual obligations, individuals may request access, correction, export, or deletion of their personal information.",
               },
             ].map((card) => {
               const Icon = card.icon;
@@ -249,7 +257,7 @@ function PrivacyPage() {
                   Table of Contents
                 </span>
                 <span className="text-[11px] uppercase tracking-wider text-[var(--brand)]">
-                  15 Sections
+                  {SECTIONS.length} Sections
                 </span>
               </div>
               <nav className="flex flex-col space-y-1 max-h-[calc(100vh-220px)] overflow-y-auto pr-1">
@@ -299,14 +307,37 @@ function PrivacyPage() {
                 Section 01
               </div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-                Overview & Scope
+                Overview & Legal Entity
               </h2>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 This Privacy Policy describes the practices of <strong>Drift Codes</strong>{" "}
                 (&ldquo;Drift Codes&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, or
-                &ldquo;our&rdquo;), a software engineering, mobile application, and artificial
-                intelligence development studio headquartered in Colombo, Sri Lanka.
+                &ldquo;our&rdquo;).{" "}
+                <strong>
+                  Drift Codes is operated by Drift Codes (Private) Limited, a company registered in
+                  Sri Lanka.
+                </strong>
               </p>
+
+              <div className="rounded-2xl border border-border bg-card p-5 mt-2">
+                <div className="flex items-start gap-3">
+                  <div className="h-8 w-8 rounded-xl bg-[var(--brand)]/10 text-[var(--brand)] flex items-center justify-center shrink-0">
+                    <Building2 className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-sm font-semibold text-foreground">
+                      Operating Legal Entity
+                    </h3>
+                    <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                      Drift Codes is operated by <strong>Drift Codes (Private) Limited</strong>, a
+                      company registered under the laws of Sri Lanka, providing software
+                      engineering, mobile app development, artificial intelligence systems, and
+                      cloud solutions to clients worldwide.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               <p className="text-sm text-muted-foreground leading-relaxed">
                 This policy applies to information collected when you:
               </p>
@@ -322,8 +353,8 @@ function PrivacyPage() {
                 </li>
                 <li>
                   Use proprietary digital products, mobile applications (such as{" "}
-                  <strong>Pulse</strong>), or web apps designed, published, or hosted by Drift
-                  Codes.
+                  <strong>Pulse</strong>), or web apps designed, published, or hosted by Drift Codes
+                  (Private) Limited.
                 </li>
                 <li>
                   Communicate with us via electronic mail, web contact forms, scheduling services,
@@ -371,8 +402,8 @@ function PrivacyPage() {
                     Ironclad Client Confidentiality
                   </h3>
                   <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-                    Your codebases, schema designs, secret keys, and business logic remain strictly
-                    your intellectual property and are safeguarded under strict NDAs.
+                    Client codebases, schema designs, secret keys, and business logic are
+                    safeguarded under strict contractual non-disclosure agreements.
                   </p>
                 </div>
                 <div className="rounded-2xl border border-border bg-card p-5">
@@ -381,8 +412,8 @@ function PrivacyPage() {
                     Transparent AI Operations
                   </h3>
                   <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-                    We disclose all third-party model providers used in custom AI pipelines and
-                    never expose private data to public training datasets.
+                    Where supported by third-party AI providers, training exclusions and data
+                    retention controls are enabled to reduce exposure of customer information.
                   </p>
                 </div>
               </div>
@@ -530,12 +561,12 @@ function PrivacyPage() {
                 Section 05
               </div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-                Client Source Code & Intellectual Property Protection
+                Client Code, Deliverables, IP & Open-Source Components
               </h2>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 As a specialized engineering studio, we recognize that our clients entrust us with
-                mission-critical intellectual property. We enforce strict contractual and technical
-                boundaries:
+                mission-critical intellectual property. We enforce strict contractual, licensing,
+                and technical boundaries:
               </p>
               <div className="space-y-3 pt-1">
                 <div className="flex items-start gap-3 rounded-2xl border border-border bg-card p-4">
@@ -548,7 +579,7 @@ function PrivacyPage() {
                     </h3>
                     <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
                       All client engagements are governed by comprehensive non-disclosure agreements
-                      before a single line of production code is written or accessed.
+                      before project code is authored, inspected, or deployed.
                     </p>
                   </div>
                 </div>
@@ -559,12 +590,27 @@ function PrivacyPage() {
                   </div>
                   <div>
                     <h3 className="font-display text-sm font-semibold text-foreground">
-                      Complete Client IP Ownership
+                      Client Deliverables & IP Ownership
                     </h3>
                     <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-                      Unless otherwise agreed in a separate licensing schedule, all custom source
-                      code, documentation, assets, and database schemas authored for a client
-                      transfer in full to the client upon milestone settlement.
+                      Ownership of deliverables is governed by the applicable client agreement,
+                      statement of work, or software development contract.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 rounded-2xl border border-border bg-card p-4">
+                  <div className="h-7 w-7 rounded-lg bg-[var(--brand)]/10 text-[var(--brand)] flex items-center justify-center shrink-0 mt-0.5">
+                    <Layers className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-sm font-semibold text-foreground">
+                      Open-Source Components
+                    </h3>
+                    <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                      Many solutions delivered by Drift Codes may incorporate open-source components
+                      subject to their respective licenses. Such components remain governed by their
+                      original licensing terms.
                     </p>
                   </div>
                 </div>
@@ -604,13 +650,13 @@ function PrivacyPage() {
                 <li>
                   <strong className="text-foreground">No Public Training on Client Assets:</strong>{" "}
                   Client proprietary data, private documents, prompt history, and source code are
-                  never allowed to train public foundation models (such as commercial LLMs).
+                  never allowed to train public foundation models without explicit contractual
+                  consent.
                 </li>
                 <li>
-                  <strong className="text-foreground">Enterprise API Endpoints:</strong> Where
-                  third-party AI APIs (e.g. OpenAI, Anthropic, Google Cloud Vertex AI, AWS Bedrock)
-                  are integrated, we mandate zero-retention enterprise endpoints with data training
-                  opt-outs enabled.
+                  <strong className="text-foreground">AI Provider Controls:</strong> Where supported
+                  by third-party AI providers, training exclusions and data retention controls are
+                  enabled to reduce exposure of customer information.
                 </li>
                 <li>
                   <strong className="text-foreground">Vector Data Isolation:</strong> Client
@@ -686,10 +732,41 @@ function PrivacyPage() {
               </p>
             </article>
 
-            {/* Section 8 */}
-            <article id="international-transfers" className="scroll-mt-28 space-y-4">
+            {/* Section 8: Third-Party Links */}
+            <article id="external-links" className="scroll-mt-28 space-y-4">
               <div className="inline-block text-xs uppercase tracking-widest text-[var(--brand)] font-semibold">
                 Section 08
+              </div>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+                Third-Party Links
+              </h2>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Our website may contain links to third-party websites. We are not responsible for
+                the privacy practices or content of external websites not operated by Drift Codes.
+              </p>
+              <div className="rounded-2xl border border-border bg-card p-5">
+                <div className="flex items-start gap-3">
+                  <div className="h-7 w-7 rounded-lg bg-[var(--brand)]/10 text-[var(--brand)] flex items-center justify-center shrink-0 mt-0.5">
+                    <ExternalLink className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-sm font-semibold text-foreground">
+                      External Privacy Policies
+                    </h3>
+                    <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                      We encourage you to review the privacy policies and terms of any external
+                      websites or third-party platforms that you visit through links provided on our
+                      site or applications.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            {/* Section 9: International Transfers */}
+            <article id="international-transfers" className="scroll-mt-28 space-y-4">
+              <div className="inline-block text-xs uppercase tracking-widest text-[var(--brand)] font-semibold">
+                Section 09
               </div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
                 International Data Transfers
@@ -715,10 +792,10 @@ function PrivacyPage() {
               </ul>
             </article>
 
-            {/* Section 9 */}
+            {/* Section 10: Security Safeguards */}
             <article id="security" className="scroll-mt-28 space-y-4">
               <div className="inline-block text-xs uppercase tracking-widest text-[var(--brand)] font-semibold">
-                Section 09
+                Section 10
               </div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
                 Security & Technical Safeguards
@@ -730,19 +807,24 @@ function PrivacyPage() {
               </p>
               <div className="grid sm:grid-cols-3 gap-3 pt-2">
                 <div className="rounded-2xl border border-border bg-card p-4 text-center">
-                  <div className="font-display text-lg font-bold text-gradient-brand">TLS 1.3</div>
+                  <div className="font-display text-base font-bold text-gradient-brand">
+                    TLS 1.3
+                  </div>
                   <div className="mt-1 text-xs text-muted-foreground">
                     End-to-end transport layer encryption for all web and API traffic.
                   </div>
                 </div>
                 <div className="rounded-2xl border border-border bg-card p-4 text-center">
-                  <div className="font-display text-lg font-bold text-gradient-brand">AES-256</div>
+                  <div className="font-display text-base font-bold text-gradient-brand">
+                    Encryption at Rest & In Transit
+                  </div>
                   <div className="mt-1 text-xs text-muted-foreground">
-                    Military-grade encryption applied to stationary databases and archives.
+                    Industry-standard encryption is used to protect data in transit and at rest
+                    where supported by our hosting and infrastructure providers.
                   </div>
                 </div>
                 <div className="rounded-2xl border border-border bg-card p-4 text-center">
-                  <div className="font-display text-lg font-bold text-gradient-brand">
+                  <div className="font-display text-base font-bold text-gradient-brand">
                     2FA / MFA
                   </div>
                   <div className="mt-1 text-xs text-muted-foreground">
@@ -752,10 +834,10 @@ function PrivacyPage() {
               </div>
             </article>
 
-            {/* Section 10 */}
+            {/* Section 11: Data Retention */}
             <article id="retention" className="scroll-mt-28 space-y-4">
               <div className="inline-block text-xs uppercase tracking-widest text-[var(--brand)] font-semibold">
-                Section 10
+                Section 11
               </div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
                 Data Retention & Deletion
@@ -771,13 +853,13 @@ function PrivacyPage() {
                 </li>
                 <li>
                   <strong className="text-foreground">Client Contracts & Invoices:</strong> Retained
-                  for 7 years to comply with statutory accounting and tax regulations in Sri Lanka
-                  and relevant international client jurisdictions.
+                  for statutory accounting and tax retention periods in Sri Lanka and relevant
+                  international client jurisdictions.
                 </li>
                 <li>
                   <strong className="text-foreground">Working Repositories:</strong> Staged client
-                  build repositories are archived or transferred to client-owned organizations
-                  immediately upon final acceptance.
+                  build repositories are archived or transferred to client-owned organizations in
+                  accordance with the applicable statement of work.
                 </li>
                 <li>
                   <strong className="text-foreground">Product Accounts:</strong> Deletion of a user
@@ -786,17 +868,17 @@ function PrivacyPage() {
               </ul>
             </article>
 
-            {/* Section 11 */}
+            {/* Section 12: Your Privacy Rights */}
             <article id="your-rights" className="scroll-mt-28 space-y-4">
               <div className="inline-block text-xs uppercase tracking-widest text-[var(--brand)] font-semibold">
-                Section 11
+                Section 12
               </div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
                 Your Privacy Rights (GDPR, CCPA, SL PDPA)
               </h2>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Regardless of your geographic location, Drift Codes extends comprehensive rights
-                over your personal data:
+                Regardless of your geographic location, Drift Codes respects your rights over your
+                personal data:
               </p>
 
               <div className="grid sm:grid-cols-2 gap-3 pt-2">
@@ -805,7 +887,7 @@ function PrivacyPage() {
                     Right of Access & Portability
                   </h3>
                   <p className="mt-1 text-xs text-muted-foreground">
-                    Request a machine-readable export of all personal data held concerning you.
+                    Request an export of personal data held concerning you.
                   </p>
                 </div>
                 <div className="rounded-2xl border border-border bg-card p-4">
@@ -821,7 +903,7 @@ function PrivacyPage() {
                     Right to Erasure (&ldquo;Forgotten&rdquo;)
                   </h3>
                   <p className="mt-1 text-xs text-muted-foreground">
-                    Demand complete deletion of your records when processing is no longer required.
+                    Request deletion of your records when processing is no longer required.
                   </p>
                 </div>
                 <div className="rounded-2xl border border-border bg-card p-4">
@@ -835,24 +917,25 @@ function PrivacyPage() {
               </div>
 
               <div className="rounded-2xl border border-[var(--brand)]/30 bg-[var(--brand)]/5 p-4 mt-3">
-                <p className="text-xs text-foreground font-medium">
-                  <strong>How to exercise your rights:</strong> Email our team at{" "}
+                <p className="text-xs text-foreground font-medium leading-relaxed">
+                  <strong>How to exercise your rights:</strong> Subject to applicable laws and
+                  contractual obligations, individuals may request access, correction, export, or
+                  deletion of their personal information by contacting our privacy team at{" "}
                   <a
                     href="mailto:driftcodeslabs@gmail.com"
                     className="text-[var(--brand)] underline font-semibold"
                   >
                     driftcodeslabs@gmail.com
                   </a>{" "}
-                  with the subject line &ldquo;Privacy Rights Request&rdquo;. We do not charge fees
-                  and fulfill valid requests within thirty (30) days.
+                  with the subject line &ldquo;Privacy Rights Request&rdquo;.
                 </p>
               </div>
             </article>
 
-            {/* Section 12 */}
+            {/* Section 13: Cookies */}
             <article id="cookies" className="scroll-mt-28 space-y-4">
               <div className="inline-block text-xs uppercase tracking-widest text-[var(--brand)] font-semibold">
-                Section 12
+                Section 13
               </div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
                 Cookies & Tracking Technologies
@@ -878,10 +961,10 @@ function PrivacyPage() {
               </ul>
             </article>
 
-            {/* Section 13 */}
+            {/* Section 14: Children */}
             <article id="children" className="scroll-mt-28 space-y-4">
               <div className="inline-block text-xs uppercase tracking-widest text-[var(--brand)] font-semibold">
-                Section 13
+                Section 14
               </div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
                 Children&rsquo;s Privacy
@@ -890,15 +973,15 @@ function PrivacyPage() {
                 Our services and commercial software offerings are intended for businesses and
                 individuals aged 16 and older. We do not knowingly solicit or collect personal
                 information from children under the age of 16. If we become aware that an underage
-                individual has submitted data without verified parental consent, we immediately
-                delete the records.
+                individual has submitted data without verified parental consent, we take prompt
+                steps to delete the records.
               </p>
             </article>
 
-            {/* Section 14 */}
+            {/* Section 15: Updates */}
             <article id="updates" className="scroll-mt-28 space-y-4">
               <div className="inline-block text-xs uppercase tracking-widest text-[var(--brand)] font-semibold">
-                Section 14
+                Section 15
               </div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
                 Changes to This Privacy Policy
@@ -908,24 +991,35 @@ function PrivacyPage() {
                 new product launches (such as updates to Pulse), or evolving international privacy
                 laws. When updates are published, the &ldquo;Last Updated&rdquo; timestamp at the
                 top of this document will be updated. For material alterations impacting client
-                commitments, we will notify registered clients via direct electronic notice.
+                commitments, we will provide appropriate notice to registered clients.
               </p>
             </article>
 
-            {/* Section 15 */}
+            {/* Section 16: Contact & Legal Entity */}
             <article id="contact" className="scroll-mt-28 space-y-4">
               <div className="inline-block text-xs uppercase tracking-widest text-[var(--brand)] font-semibold">
-                Section 15
+                Section 16
               </div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-                Contact & Data Privacy Office
+                Contact & Legal Entity Information
               </h2>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                If you have questions, feedback, or complaints regarding this Privacy Policy or our
+                If you have questions, feedback, or requests regarding this Privacy Policy or our
                 engineering privacy safeguards, please reach out to us:
               </p>
 
               <div className="grid sm:grid-cols-3 gap-4 pt-2">
+                <div className="rounded-2xl border border-border bg-card p-5">
+                  <Building2 className="h-5 w-5 text-[var(--brand)] mb-2" />
+                  <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">
+                    Legal Entity
+                  </div>
+                  <div className="mt-1 text-sm font-medium text-foreground">
+                    Drift Codes (Private) Limited
+                  </div>
+                  <div className="mt-1 text-[11px] text-muted-foreground">Colombo, Sri Lanka</div>
+                </div>
+
                 <div className="rounded-2xl border border-border bg-card p-5">
                   <Mail className="h-5 w-5 text-[var(--brand)] mb-2" />
                   <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">
@@ -951,14 +1045,6 @@ function PrivacyPage() {
                       +94 76 094 6455
                     </a>
                   </div>
-                </div>
-
-                <div className="rounded-2xl border border-border bg-card p-5">
-                  <MapPin className="h-5 w-5 text-[var(--brand)] mb-2" />
-                  <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">
-                    Studio Location
-                  </div>
-                  <div className="mt-1 text-sm font-medium text-foreground">Colombo, Sri Lanka</div>
                 </div>
               </div>
             </article>
