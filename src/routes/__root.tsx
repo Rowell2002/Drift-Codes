@@ -79,10 +79,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Drift Codes — Software, App & AI Development from Sri Lanka" },
-      { name: "description", content: "Drift Codes builds modern software, mobile apps and AI products from Sri Lanka. Makers of Pulse, the next-gen fitness app." },
+      {
+        name: "description",
+        content:
+          "Drift Codes builds modern software, mobile apps and AI products from Sri Lanka. Makers of Pulse, the next-gen fitness app.",
+      },
       { name: "author", content: "Drift Codes" },
       { property: "og:title", content: "Drift Codes — Software, App & AI Development" },
-      { property: "og:description", content: "Sri Lanka based studio crafting software, apps and AI." },
+      {
+        property: "og:description",
+        content: "Sri Lanka based studio crafting software, apps and AI.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@DriftCodes" },
@@ -165,13 +172,19 @@ function SiteHeader() {
   const [open, setOpen] = useState(false);
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/70 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link to="/" className="flex items-center gap-2.5 group">
-          <img src={logoAsset} alt="Drift Codes" className="h-9 w-9 transition-transform group-hover:rotate-[-8deg] group-hover:scale-110" />
+          <img
+            src={logoAsset}
+            alt="Drift Codes"
+            className="h-9 w-9 transition-transform group-hover:rotate-[-8deg] group-hover:scale-110"
+          />
           <span className="font-display text-lg font-semibold tracking-tight">
             Drift<span className="text-gradient-brand">Codes</span>
           </span>
@@ -183,7 +196,9 @@ function SiteHeader() {
               to={n.to}
               activeOptions={{ exact: n.to === "/" }}
               className="px-4 py-2 text-sm text-muted-foreground rounded-full hover:text-foreground hover:bg-muted/60 transition"
-              activeProps={{ className: "px-4 py-2 text-sm rounded-full text-foreground bg-muted/80" }}
+              activeProps={{
+                className: "px-4 py-2 text-sm rounded-full text-foreground bg-muted/80",
+              }}
             >
               {n.label}
             </Link>
@@ -204,9 +219,15 @@ function SiteHeader() {
             className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/60 text-foreground hover:border-[var(--brand)] hover:text-[var(--brand)] transition"
           >
             <span className="relative block h-3 w-5">
-              <span className={`absolute left-0 top-0 h-0.5 w-5 bg-current transition-transform ${open ? "translate-y-[6px] rotate-45" : ""}`} />
-              <span className={`absolute left-0 top-[6px] h-0.5 w-5 bg-current transition-opacity ${open ? "opacity-0" : "opacity-100"}`} />
-              <span className={`absolute left-0 top-[12px] h-0.5 w-5 bg-current transition-transform ${open ? "-translate-y-[6px] -rotate-45" : ""}`} />
+              <span
+                className={`absolute left-0 top-0 h-0.5 w-5 bg-current transition-transform ${open ? "translate-y-[6px] rotate-45" : ""}`}
+              />
+              <span
+                className={`absolute left-0 top-[6px] h-0.5 w-5 bg-current transition-opacity ${open ? "opacity-0" : "opacity-100"}`}
+              />
+              <span
+                className={`absolute left-0 top-[12px] h-0.5 w-5 bg-current transition-transform ${open ? "-translate-y-[6px] -rotate-45" : ""}`}
+              />
             </span>
           </button>
         </div>
@@ -214,8 +235,9 @@ function SiteHeader() {
 
       {/* Mobile menu overlay */}
       <div
-        className={`md:hidden fixed inset-x-0 top-[65px] bottom-0 z-30 transition-all duration-300 ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-          }`}
+        className={`md:hidden fixed inset-x-0 top-[65px] bottom-0 z-30 transition-all duration-300 ${
+          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
       >
         <div
           className="absolute inset-0 bg-background/80 backdrop-blur-xl"
@@ -230,7 +252,10 @@ function SiteHeader() {
                   activeOptions={{ exact: n.to === "/" }}
                   onClick={() => setOpen(false)}
                   className="flex items-center justify-between rounded-2xl px-4 py-3 text-base font-medium text-muted-foreground hover:bg-muted/60 hover:text-foreground transition"
-                  activeProps={{ className: "flex items-center justify-between rounded-2xl px-4 py-3 text-base font-semibold text-foreground bg-muted/80" }}
+                  activeProps={{
+                    className:
+                      "flex items-center justify-between rounded-2xl px-4 py-3 text-base font-semibold text-foreground bg-muted/80",
+                  }}
                 >
                   <span>{n.label}</span>
                   <span className="text-[var(--brand)]">→</span>
@@ -259,16 +284,30 @@ function SiteFooter() {
         <div className="md:col-span-2">
           <div className="flex items-center gap-2.5">
             <img src={logoAsset} alt="" className="h-8 w-8" />
-            <span className="font-display text-lg font-semibold">Drift<span className="text-gradient-brand">Codes</span></span>
+            <span className="font-display text-lg font-semibold">
+              Drift<span className="text-gradient-brand">Codes</span>
+            </span>
           </div>
           <p className="mt-3 max-w-sm text-sm text-muted-foreground">
-            A Sri Lanka based studio building software, mobile apps and AI products that move fast and feel sharp.
+            A Sri Lanka based studio building software, mobile apps and AI products that move fast
+            and feel sharp.
           </p>
         </div>
         <div>
           <h4 className="text-sm font-semibold mb-3">Explore</h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            {NAV.map((n) => <li key={n.to}><Link to={n.to} className="hover:text-foreground">{n.label}</Link></li>)}
+            {NAV.map((n) => (
+              <li key={n.to}>
+                <Link to={n.to} className="hover:text-foreground">
+                  {n.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link to="/privacy" className="hover:text-foreground">
+                Privacy Policy
+              </Link>
+            </li>
           </ul>
         </div>
         <div>
@@ -280,8 +319,16 @@ function SiteFooter() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-border/60 py-5 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Drift Codes. Crafted in Sri Lanka.
+      <div className="border-t border-border/60 py-5 px-6 mx-auto max-w-7xl flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
+        <div>© {new Date().getFullYear()} Drift Codes. Crafted in Sri Lanka.</div>
+        <div className="flex items-center gap-6">
+          <Link to="/privacy" className="hover:text-foreground transition">
+            Privacy Policy
+          </Link>
+          <Link to="/contact" className="hover:text-foreground transition">
+            Contact
+          </Link>
+        </div>
       </div>
     </footer>
   );
