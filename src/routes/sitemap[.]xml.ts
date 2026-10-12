@@ -31,6 +31,11 @@ export const Route = createFileRoute("/sitemap.xml")({
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://driftcodes.com/privacy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>`;
 
         return new Response(sitemap, {
